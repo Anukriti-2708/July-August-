@@ -1,0 +1,22 @@
+class Solution {
+    public ListNode middleNode(ListNode head) {
+        ListNode temp1 = new ListNode();
+        ListNode temp2 = new ListNode();
+        
+        temp1 = head;
+        temp2 = head;
+        
+        while(temp2.next != null){
+            
+            if(temp2.next.next !=null){
+            temp1 = temp1.next;
+            temp2 = temp2.next.next;
+            }
+            else{
+                return temp1.next;
+            }
+        }
+        
+        return temp1;
+    }
+}
