@@ -1,0 +1,30 @@
+class Solution
+{
+    //Function to sort a linked list of 0s, 1s and 2s.
+    static Node segregate(Node head)
+    {
+       int []count = {0,0,0};
+       Node node = head;
+       
+       while(node!=null){
+           count[node.data]++;
+          node = node.next; 
+          }
+       node = head;
+       int i =0;
+       while(node!=null){
+           
+           if(count[i] == 0){
+               i++;
+           }
+           else{
+               node.data =i;
+               count[i]--;
+               node = node.next;
+           }
+           
+       }
+       
+       return head;
+    }
+}
