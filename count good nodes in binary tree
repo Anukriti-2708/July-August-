@@ -1,0 +1,29 @@
+class Solution {
+    int good = 1;
+    public int goodNodes(TreeNode root) {
+        if(root == null){
+            return 0;
+        }
+        int max = root.val;
+        
+        
+        countNodes(root.left, max);
+        countNodes(root.right, max);
+        
+        return good;
+    }
+    
+    public void countNodes(TreeNode root, int max){
+        if(root == null){
+            return;
+        }
+       
+        if(root.val >= max){
+            max = root.val;
+            good++;
+            }
+        
+        countNodes(root.left,max);
+        countNodes(root.right,max);
+    }
+}
