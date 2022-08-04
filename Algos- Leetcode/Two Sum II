@@ -1,0 +1,19 @@
+class Solution {
+    public int[] twoSum(int[] numbers, int target) {
+        int pointer_a =0;
+        int pointer_b =numbers.length-1;
+        
+        int[]result = new int[2];
+        
+        for(int i=0;i<numbers.length;i++){
+        if(numbers[pointer_a] + numbers[pointer_b] > target){ pointer_b--;}
+        else if(numbers[pointer_a] + numbers[pointer_b] < target){ pointer_a++;}
+        else if (numbers[pointer_a] + numbers[pointer_b] == target) {
+            result[0] = pointer_a+1;
+            result[1]=pointer_b+1;
+        }
+        }
+        
+        return result;
+    }
+}
