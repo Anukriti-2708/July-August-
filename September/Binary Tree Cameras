@@ -1,0 +1,38 @@
+class Solution {
+    
+    int cameras =0;
+    public int solve(TreeNode root){
+        if(root == null ) return 1;
+        
+       int lc= solve(root.left);
+       int rc =solve(root.right);
+        
+       if(lc==1 && rc == 1) return -1;      /*need a camera*/
+       if(lc==-1 || rc == -1) {
+           cameras++;
+           return 0;                       /*got a camera installed because children didnt have it*/
+       }
+        if(lc ==0 || rc == 0) {return 1;}  /*children got me covered with their camera*/
+       
+        return 0;
+    }
+    
+   
+    public int minCameraCover(TreeNode root) {
+        
+        if(root == null) return 0;
+        
+        int lc = solve(root.left);
+         int rc = solve(root.right);
+        
+        
+        if(lc == -1 || rc ==-1) cameras++;
+       else if(lc == 1 && rc == 1) cameras++;
+        
+        
+        return cameras;
+        
+       
+}
+   
+}
